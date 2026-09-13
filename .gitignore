@@ -26,3 +26,6 @@ node_modules/
 dist/
 build/
 *.zip
+
+# 本地验证报告与测试截图（不随站点发布）
+reports/
