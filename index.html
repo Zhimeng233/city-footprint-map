@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="在中国地图上记录去过的城市，保存足迹与旅行感想。"><title>山河足迹 · 我的城市地图</title><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="./"><span class="brand-icon">山</span><strong>山河足迹</strong><span class="brand-sub">我的城市地图</span></a><div class="header-actions"><span id="save-status" role="status">足迹保存在当前浏览器</span><button id="theme-toggle" type="button" aria-pressed="false">切换深色</button><button id="export-map" class="primary" disabled>导出高清全图</button></div></header>
+<main>
+<aside>
+<div class="aside-heading"><h2>我的足迹</h2><span class="small-caption">一点一滴，记下旅程</span></div><div class="stat"><strong id="total">0</strong><span>座城市已点亮</span></div>
+<label for="city-search">查找城市</label><div class="search-box"><input id="city-search" type="search" placeholder="搜索城市，如：杭州" autocomplete="off" aria-controls="search-results"><span aria-hidden="true">⌕</span></div><div id="search-results" class="search-results" aria-live="polite" hidden></div>
+<div class="region-field"><label for="province">浏览地区</label><select id="province"><option value="">全国</option></select></div>
+<section id="note-editor" class="note-editor" hidden aria-labelledby="note-title"><div class="list-heading"><h2 id="note-title">城市手记</h2><button id="close-note" aria-label="收起城市手记">×</button></div><button id="note-toggle" class="note-toggle"></button><label for="visit-date">到访日期 <span class="optional">选填</span></label><input id="visit-date" type="date"><label for="city-note">旅行感想</label><textarea id="city-note" rows="3" maxlength="2000" placeholder="记下一处风景、一顿美食，或那一天的心情…"></textarea><div class="note-meta"><span>编辑后自动保存</span><span id="note-length">0 / 2000</span></div></section>
+<div class="list-heading"><h2 id="list-title">选择一个省份</h2><span id="region-count"></span></div><p id="list-hint" class="muted">点击省份，探索城市。</p><div id="city-list" class="city-list"></div>
+<section class="selected-section"><div class="list-heading"><h2>已点亮的城市</h2><button id="clear" title="清除点亮状态，保留城市手记">清空点亮</button></div><div id="selected-list"></div></section>
+<p class="footnote">支持地级市、自治州、地区及盟。直辖市整体点亮，台湾及港澳暂按整体区域展示。记录仅保存在当前浏览器，清理网站数据会删除记录。</p>
+</aside>
+<section class="map-panel"><div class="map-top"><div><div class="eyebrow">足迹地图</div><h1 id="map-title">中国地图</h1><p id="instruction">点击省份，探索并点亮城市</p></div><div class="view-controls"><div class="segmented" aria-label="地图细化程度"><button id="province-mode" class="active" aria-pressed="true">省级视图</button><button id="city-mode" aria-pressed="false">城市视图</button></div><label id="label-control" class="label-control" hidden><input id="show-labels" type="checkbox" checked>显示城市名称</label><label class="label-control"><input id="show-boundary" type="checkbox" checked>显示秦岭—淮河线</label></div></div>
+<div id="map" role="img" aria-label="中国交互地图，可使用左侧列表操作"></div><div id="loading" role="status">正在加载地图…</div>
+<div class="map-bottom"><button id="back" hidden>← 全国</button><span class="legend"><i></i>未点亮<i class="lit"></i>已点亮<span class="boundary-key"><i></i>秦岭—淮河线（示意）</span></span><div class="zoom-controls" aria-label="地图缩放"><button id="zoom-out" aria-label="缩小地图">−</button><output id="zoom-level" aria-label="当前缩放倍数">1.0×</output><button id="zoom-in" aria-label="放大地图">＋</button></div><button id="reset-view">重置视角</button></div>
+<p class="boundary-note">线北为北方、线南为南方的大致参考，沿线存在过渡带；不向西部地区延伸。<a href="https://www.csgpc.org/detail/24448.html" target="_blank" rel="noreferrer">参考说明</a></p><div class="map-source">边界数据：<a href="https://datav.aliyun.com/portal/school/atlas/area_selector" target="_blank" rel="noreferrer">阿里云 DataV</a> · 示意地图<span>滚轮缩放 · 拖动浏览</span></div>
+</section></main><div id="status" class="toast" role="status" hidden></div>
+<script src="echarts.min.js"></script><script src="app.js"></script></body></html>
+

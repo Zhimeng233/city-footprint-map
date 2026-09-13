@@ -1,0 +1,28 @@
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+*.tmp
+.cache/
+
+# 本地环境配置
+.env
+.env.local
+
+# 依赖目录（当前项目无构建步骤，预留）
+node_modules/
+
+# 导出与打包产物
+dist/
+build/
+*.zip
